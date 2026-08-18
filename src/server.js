@@ -28,7 +28,15 @@ app.get("/equipes", async (req, res) => {
 })
 
 app.post("/desenvolvedores", async (req, res) => {
-    
+    const {nome, nivel, equipeId} = req.body;
+    const novoDev = await prisma.desenvolvedor.create ({
+        data:{
+            nome,
+            nivel,
+            equipeId
+        }
+    })
+    return res.status(201).json({ novoDev })
 })
 
 // app.get("/equipes/:id/desenvolvedores", async (req, req) => {
