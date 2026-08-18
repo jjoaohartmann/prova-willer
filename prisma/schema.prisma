@@ -12,3 +12,17 @@ datasource db {
   provider = "postgresql"
 }
 
+model equipe{
+  id String @id @default (uuid())
+  nome String
+  especialidade String
+  desenvolvedores Desenvolvedor []
+}
+
+model Desenvolvedor{
+  id String @id @default (uuid())
+  nome String
+  nivel String
+  equipeId String
+  equipe equipe @relation(fields:[equipeId], references: [id])
+}
