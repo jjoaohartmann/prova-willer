@@ -25,6 +25,18 @@ app.get("/equipes/:id/desenvolvedores", async (req, req) => {
 })
 
 app.put("/desenvolvedores", async (req, res) => {
+
+})
+
+app.put("/equipe", async (req, res) => {
+
+})
+
+app.delete("desenvolvedor/:id", async (req, res) => {
+
+})
+
+app.delete("/equipe/:id", async (req, res) => {
     
 })
 
