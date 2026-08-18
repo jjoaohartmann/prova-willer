@@ -20,13 +20,16 @@ app.post("/equipes", async (req, res) => {
     return res.status(201).json ({novaEquipe})
 })
 
-// app.get("/equipes", async (req, res) => {
+app.get("/equipes", async (req, res) => {
+    const equipes = await prisma.equipe.findMany({
+        include:{ desenvolvedores: true}
+    })
+    return res.status(200).json(equipes)
+})
 
-// })
-
-// app.post("/desenvolvedores", async (req, res) => {
-
-// })
+app.post("/desenvolvedores", async (req, res) => {
+    
+})
 
 // app.get("/equipes/:id/desenvolvedores", async (req, req) => {
 
