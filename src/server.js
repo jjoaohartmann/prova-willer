@@ -41,8 +41,12 @@ app.post("/desenvolvedores", async (req, res) => {
 })
 
 
-app.get("/equipes/:id/desenvolvedores", async (req, req) => {
-
+app.get("/equipes/:id/desenvolvedores", async (req, res) => {
+    const { id } = req.params;
+    const desenvolvedores = await prisma.desenvolvedor.findMany({
+        where: {equipeId: id }
+    })
+    return res.status(200).json(desenvolvedores)
 })
 
 
