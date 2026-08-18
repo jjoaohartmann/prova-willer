@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(cors())
 
 app.post("/equipes", async (req, res) => {
-
+ 
 })
 
 app.get("/equipes", async (req, res) => {
@@ -37,7 +37,7 @@ app.delete("desenvolvedor/:id", async (req, res) => {
 })
 
 app.delete("/equipe/:id", async (req, res) => {
-    
+
 })
 
 app.listen(PORT, () => {
