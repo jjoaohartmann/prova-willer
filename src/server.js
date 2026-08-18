@@ -51,13 +51,13 @@ app.get("/equipes/:id/desenvolvedores", async (req, res) => {
 
 
 app.put("/desenvolvedores/:id", async (req, res) => {
-    const {id} = req.params;
-    const equipeId = req.equipeId;
-    const {nome, nivel } = req.body;
+    const {id, nome, nivel, equipeId } = req.body;
 
     const desenvolvedorAtualizado = await prisma.desenvolvedores.update({
-        where:{id, equipeId }
+        where:{id },
+        data: { nome, nivel, equipeId}
     })
+    return res.status(201).json({mensagem: "Atualizado", desenvolvedorAtualizado})
 })
 
 // app.put("/equipe", async (req, res) => {
